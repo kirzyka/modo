@@ -1,0 +1,8 @@
+<div  ng-class="{ 'active': listVisible, 'disabled': !enabled }">
+    <div class="ink" ng-class="{'animate': clicked}"></div>
+    <div ng-click="onAction($event)">
+        <svg-image href="src"></svg-image>
+        <span ng-bind="label" ng-if="label" ng-class="{'pull-right': position == 'right', 'pull-left': position == 'left'}"></span>
+    </div>
+    <ul class="dropdown-list" ng-click="close()" ng-transclude></ul>
+</div>

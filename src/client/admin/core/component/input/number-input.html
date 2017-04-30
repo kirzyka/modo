@@ -1,0 +1,10 @@
+<div class="text-input">
+    <input type="text" ng-model="vm.scope.value" ng-blur="vm.validateValue()">
+
+    <div class="clear-btn" title="Clear"
+         ng-if="vm.scope.enabled && vm.isNumber(vm.scope.value)"
+         ng-click="vm.clear()">
+        <svg-image src="/asset/icon/close.svg"></svg-image>
+    </div>
+    <div class="disabled" ng-if="!vm.scope.enabled"></div>
+</div>

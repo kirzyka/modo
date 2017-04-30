@@ -1,0 +1,76 @@
+@import "../../style/const";
+@import "../../style/mixin";
+
+checkbox {
+  display: inline-block;
+  position: relative;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label {
+    vertical-align: top;
+    cursor: pointer;
+
+    span {
+      vertical-align: inherit;
+    }
+  }
+  input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin: 0 5px 0 0;
+    background-repeat: no-repeat;
+  }
+
+  input[type="checkbox"] + label::before {
+    background: url('../asset/icon/check-box-empty.svg');
+  }
+
+  input[type="checkbox"]:indeterminate + label::before,
+  input[type="checkbox"].indeterminate + label::before {
+    background: url('../asset/icon/check-box-semi.svg');
+  }
+
+  input[type="checkbox"]:checked + label::before {
+    background: url('../asset/icon/check-box-checked.svg');
+  }
+  input[type="checkbox"]:disabled + label::before {
+    background: #AF5;
+  }
+  input[type="checkbox"]:indeterminate:disabled + label::before {
+    background: #FF2;
+  }
+  input[type="checkbox"]:checked:disabled + label::before {
+    background: #5FA;
+  }
+
+  label {
+      text-align: center;
+  }
+
+  span {
+    display: block;
+
+    &.pull-right {
+      padding-left: 5px;
+    }
+    &.pull-left {
+      padding-right: 5px;
+    }
+  }
+
+  .disabled {
+    cursor: default;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: $color-white;
+    opacity: 0.7;
+  }
+}

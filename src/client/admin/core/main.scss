@@ -1,0 +1,276 @@
+@import "./style/const";
+@import "./style/mixin";
+@import "./style/simplegrid";
+
+//-------------------------------------
+// Standard
+*, *:after, *:before {
+  //font-family: "Roboto";
+  font-family: "Maven Pro";
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: -1px;
+  @include cross(box-sizing, border-box);
+}
+
+html {
+  background: $color-0-1;
+  height: 100%;
+}
+
+html, body {
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+}
+
+body{
+  width: 100%;
+  min-width: 1280px;
+  height: 100%;
+  min-height: 648px;
+}
+
+select {
+  font-size: 14px;
+  width: 100%;
+  padding: 4px;
+  height: 24px;
+}
+
+input {
+  padding: 4px 5px;
+  height: 24px;
+  font-size: 14px;
+  border: none;
+
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+fieldset {
+    border: 1px solid $color-grey-4;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+ul > li{
+  list-style:none;
+}
+
+button {
+  background: $color-white;
+  border: 1px solid $color-grey-4;
+
+  &:disabled {
+    background: $color-grey-5;
+  }
+}
+
+.required {
+  label:after {
+    content: '*';
+    color: $color-red;
+    font-size: 1.5em;
+    padding: 0 3px;
+    line-height: 0px;
+    vertical-align: middle;
+  }
+}
+
+//-------------------------------------
+// Structure
+.main {
+  height: 100%;
+}
+
+.page-wrapper {
+  position: absolute;
+  height: auto;
+  left: 0;
+  right: 0;
+  top: 82px;
+  bottom: 4px;
+
+  .ui-grid {
+    height: auto;
+  }
+}
+
+//-------------------------------------
+// Helpers
+.clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.show {
+  display:block !important;
+}
+
+.hide { /* Hide stuff without resorting to display:none; */
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &:after { /* Hide stuff without resorting to display:none; */
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// padding
+.p-0 {
+  padding: 0 !important;
+}
+
+.p-5 {
+  padding: 5px !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-15 {
+  padding: 15px !important;
+}
+
+.p-5-0 {
+  padding: 5px 0 !important;
+}
+
+.p-0-5 {
+  padding: 0 5px !important;
+}
+
+.p-10-0 {
+  padding: 10px 0 !important;
+}
+
+.p-0-10 {
+  padding: 0 10px !important;
+}
+
+
+.p-15-0 {
+  padding: 15px 0 !important;
+}
+
+.p-0-15 {
+  padding: 0 15px !important;
+}
+
+// margin
+.m-5 {
+  margin: 5px !important;
+}
+
+.m-10 {
+  margin: 10px !important;
+}
+
+.m-15 {
+  margin: 15px !important;
+}
+
+.m-5-0 {
+  margin: 5px 0 !important;
+}
+
+.m-0-5 {
+  margin: 0 5px !important;
+}
+
+.m-10-0 {
+  margin: 10px 0 !important;
+}
+
+.m-0-10 {
+  margin: 0 10px !important;
+}
+
+.m-15-0 {
+  margin: 15px 0 !important;
+}
+
+.m-0-15 {
+  margin: 0 15px !important;
+}
+
+// width
+.w-fill {
+  width: 100% !important;
+}
+
+.w-100 {
+  width: 100px !important;
+}
+
+.blur {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+}

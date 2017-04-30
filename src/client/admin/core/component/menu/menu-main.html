@@ -1,0 +1,20 @@
+<nav ng-init="vm.init()">
+    <div class="mnu" ng-repeat="mnuItem in vm.mnuItems">
+        <div class="dropdown-display" ng-click="vm.openDataMnu($event, mnuItem)">
+            <span>
+                <svg-image src="/asset/icon/icon5_ETLValidation_18x18px.svg"></svg-image>
+            </span>
+            <span ng-bind="mnuItem.label"></span>
+            <div class="dropdown-btn"  ng-if="!mnuItem.isOpen && mnuItem.items">
+                <svg-image src="/asset/icon/icon8_ListDown_24x12px.svg"></svg-image>
+            </div>
+            <div class="dropdown-btn" ng-if="mnuItem.isOpen && mnuItem.items">
+                <svg-image src="/asset/icon/icon9_ListUp_24x12px.svg"></svg-image>
+            </div>
+        </div>
+        <div class="dropdown-list" ng-class="{'show': mnuItem.isOpen}">
+            <a ng-repeat="mnuSubItem in mnuItem.items track by $index" ng-href="#/{{mnuSubItem.link}}" ng-bind="mnuSubItem.label"></a>
+        </div>
+    </div>
+
+</nav>

@@ -1,0 +1,29 @@
+@import "../../style/const";
+@import "../../style/mixin";
+
+icon-radio-button {
+  display: inline-block;
+  width: 60px;
+
+  input[type="radio"] {
+    display:none;
+  }
+
+  input[type="radio"] + div{
+    text-align: center;
+    cursor: pointer;
+  }
+
+  svg {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+
+  & .disabled {
+    cursor: auto;
+    fill: $color-grey-4;
+    color: $color-grey-4;
+  }
+}
+

@@ -1,0 +1,8 @@
+<input id="{{id}}" type="checkbox" ng-model="value">
+<label for="{{id}}">
+    <span ng-if="label"
+          ng-bind="label"
+          ng-class="{'pull-right': position == 'right', 'pull-left': position == 'left'}">
+    </span>
+</label>
+<div class="disabled" ng-if="!enabled"></div>

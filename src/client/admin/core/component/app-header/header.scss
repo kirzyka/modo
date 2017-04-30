@@ -1,0 +1,48 @@
+@import "../../style/const";
+@import "../../style/mixin";
+
+header {
+  height: 44px;
+  background: $color-header-0-1;
+  color: $color-white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 5px 10px;
+
+  .title {
+    font-size: 20px;
+
+    .app-logo {
+      display: inline-block;
+      vertical-align: middle;
+      width: 27px;
+      height: 28px;
+      margin: 4px 9px 4px 4px;
+      fill: $color-white;
+    }
+  }
+
+  .info {
+    font-size: 16px;
+
+    .logout-btn {
+      display: inline-block;
+      vertical-align: middle;
+      width: 23px;
+      height: 24px;
+      margin: 4px 10px 4px 10px;
+      fill: $color-white;
+    }
+
+    .db-logo {
+      display: inline-block;
+      vertical-align: middle;
+      width: 22px;
+      height: 22px;
+      margin: 4px 4px 4px 0;
+      fill: $color-white;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="calendar" ng-style="styles">
+    <div class="calendar-header">
+        <div class="calendar-controls">
+            <span class="calendar-prev" ng-click="changeMonth(-1)" ng-if="allowPrevMonth"></span>
+            <span class="calendar-next" ng-click="changeMonth(1)" ng-if="allowNextMonth"></span>
+        </div>
+        <h3 class="calendar-centered-heading">
+            {{currentDate | date:"MMMM yyyy"}}
+        </h3>
+    </div>
+    <div class="calendar-body">
+        <div class="calendar-main">
+            <ul class="calendar-cell">
+                <li class="calendar-head" ng-repeat="dayName in dayNames track by $index">
+                    {{dayName}}
+                </li>
+            </ul>
+            <ul class="calendar-cell">
+                <li ng-repeat="d in dates" ng-click="setDate(d)" ng-class="classesFor(d)">
+                    {{d.dateObj | date:"d"}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

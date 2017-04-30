@@ -1,0 +1,83 @@
+@import "../../style/const";
+@import "../../style/mixin";
+
+.cp-container {
+  margin-bottom: 5px;
+
+  .btn {
+    width: 22px;
+    height: 22px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  > .header {
+    position: relative;
+    padding: 5px;
+    font-size: 1em;
+
+    span.caption {
+      margin-left: 10px;
+    }
+
+    .error-icon {
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      margin-left: 10px;
+
+      &.no-error {
+        display: none;
+      }
+
+      &.has-error {
+        float: left;
+      }
+    }
+
+    .button-box {
+      display: inline-block;
+      position: absolute;
+      right: 5px;
+      top: 0px;
+
+      .control-button {
+        display: inline-block;
+        font-size: 25px;
+        width: 20px;
+        height: 20px;
+        margin: 0 2px;
+        font-weight: bold;
+        cursor: pointer;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  > .content {
+    max-height: 0;
+    //overflow: hidden;
+    @include cross(transition, max-height .3s ease);
+
+    .container {
+      padding: 10px;
+      opacity: 0;
+      @include cross(transition, opacity .6s ease);
+    }
+  }
+}
+
+.cp-expanded {
+  > .content {
+    max-height: 10000px;
+
+    .container {
+      opacity: 1;
+    }
+  }
+}

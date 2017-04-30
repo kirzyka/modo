@@ -1,0 +1,127 @@
+@import "../../style/const";
+@import "../../style/mixin";
+
+@-webkit-keyframes ripple {
+  100% {opacity: 0; -webkit-transform: scale(2.5);}
+}
+@-ms-keyframes ripple {
+  100% {opacity: 0; -ms-transform: scale(2.5);}
+}
+
+@keyframes ripple {
+  100% {opacity: 0; transform: scale(2.5);}
+}
+
+icon-button, .icon-button {
+  position: relative;
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+  cursor: pointer;
+  fill: $color-grey-2;
+  color: $color-grey-2;
+
+  .ink {
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    top: -5px;
+    left: calc(50% - 17px);
+    border-radius: 50%;
+    background: rgba(136, 163, 224, 0.3);
+    @include cross(transform, scale(0));
+
+    &.animate {
+      @include cross(animation, ripple 0.65s linear);
+    }
+  }
+
+
+  svg {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+
+  span {
+    display: block;
+
+    &.pull-right {
+      padding-left: 5px;
+    }
+    &.pull-left {
+      padding-right: 5px;
+    }
+  }
+
+  .dropdown-list {
+    /* Size & position */
+    position: absolute;
+    left: 100%;
+    top: 0;
+
+    /* Styles */
+    background: rgba(207, 216, 220, 1);
+    border: 1px solid $color-grey-3;
+    font-weight: normal; /* Overwrites previous font-weight: bold; */
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style-type: none;
+
+    /* Hiding */
+    display: none;
+    pointer-events: none;
+
+    max-height: 200px;
+    width: 200px;
+    overflow-y: auto;
+    @include thin-scroll($color-grey-3);
+    z-index: 1;
+
+    li {
+      display: block;
+      padding: 4px 5px;
+      height: 24px;
+      font-size: 14px;
+
+      /* Hover state */
+      &:hover  {
+        background: $color-white;
+      }
+    }
+  }
+
+  /* Active state */
+  & .active .dropdown-list {
+    display: block;
+    pointer-events: auto;
+  }
+
+  & .disabled {
+    cursor: auto;
+    fill: $color-grey-4;
+    color: $color-grey-4;
+  }
+
+  &.list-top-right .active .dropdown-list {
+    left: 100%;
+    top: 0;
+  }
+  &.list-top-left .active .dropdown-list {
+    right: 100%;
+    left:auto;
+    top: 0;
+  }
+  &.list-bottom-right .active .dropdown-list {
+    left: 100%;
+    bottom: 0;
+    top: auto;
+  }
+  &.list-bottom-left .active .dropdown-list {
+    right: 100%;
+    left:auto;
+    bottom: 0;
+    top: auto;
+  }
+}

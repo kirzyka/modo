@@ -1,0 +1,32 @@
+<div class="cp-container" ng-class="panelState">
+    <div class="header">
+        <div class="btn" ng-click="onChangeState()" ng-if="!isOpened && !freeze">
+            <svg-image src="/asset/icon/arrow_right.svg"></svg-image>
+        </div>
+        <div class="btn" ng-click="onChangeState()" ng-if="isOpened && !freeze">
+            <svg-image src="/asset/icon/arrow_down.svg"></svg-image>
+        </div>
+        <div class="error-icon tooltip" ng-class="errorState">
+            <span>
+                <svg-image src="/asset/icon/warning.svg"></svg-image>
+                <ul>
+                    <li ng-repeat="error in errors track by $index" ng-bind="error.label"></li>
+                </ul>
+            </span>
+        </div>
+
+        <span class="caption" ng-bind="caption"></span>
+
+        <div class="button-box">
+            <div class="control-button"
+                 ng-repeat="btn in buttons | filter : buttonsFilter"
+                 ng-click="btn.settings.action($event)"
+                 title="{{btn.title}}">
+                <svg-image href="btn.settings.src"></svg-image>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container" ng-if="isOpened" ng-transclude=""></div>
+    </div>
+</div>

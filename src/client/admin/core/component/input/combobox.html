@@ -1,0 +1,66 @@
+<div class="combobox-container" ng-class="{ 'active': listVisible }" ng-focus="console.log('focus');">
+    <div class="combobox-display">
+        <div>
+            <input type="text"
+                   placeholder="{{!searchParam ? placeholder : ''}}"
+                   title="{{searchParam}}"
+                   restrict="currentPattern"
+                   ng-click="onTextInputClick()"
+                   ng-change="onTextInputChange()"
+                   ng-readonly="!autocomplete"
+                   ng-model="searchParam"/>
+        </div>
+        <div class="clear-btn"
+             ng-if="enabled && selectedItems.length > 0 && !mandatory"
+             ng-click="clear()"
+             title="Clear">
+            <svg-image src="/asset/icon/close.svg"></svg-image>
+        </div>
+        <div class="combo-btn"
+             ng-click="show(!listVisible)"
+             ng-show="hasItemsToDisplay">
+            <div ng-hide="listVisible">
+                <svg-image src="/asset/icon/icon19_SearchArrow_Down_14x8px.svg"></svg-image>
+            </div>
+            <div ng-show="listVisible">
+                <svg-image src="/asset/icon/icon18_SearchArrow_Up_14x8px.svg"></svg-image>
+            </div>
+        </div>
+    </div>
+    <ul class="combobox-list" ng-if="listVisible && hasItemsToDisplay">
+        <!--
+        <li ng-if="multiple">
+            <button class="btn-link btn-small" ng-click="checkAll()"><i class="icon-ok"></i> Check all</button>
+            <button class="btn-link btn-small" ng-click="uncheckAll()"><i class="icon-remove"></i> Uncheck all</button>
+        </li>
+
+        <li ng-if="maxSelected">
+            <small>Selected maximum of</small>
+            <small ng-bind="selectLimit"></small>
+        </li>
+        <li ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy: 'toString()' track by $index"
+            index="{{ $index }}"
+            val="{{ suggestion }}"
+            ng-class="{ active: ($index === selectedIndex) }"
+            ng-click="select(suggestion)"
+            ng-bind-html="suggestion.value | highlight:searchParam"
+        -->
+        <li ng-repeat="item in cacheList"
+            ng-click="onClickSelect(item, $event)"
+            ng-if="multiple && cacheList.length">
+            <input type="checkbox"
+                   ng-checked="isSelected(item)"/>
+            <span>{{getItemLabel(item)}}</span>
+        </li>
+        <hr ng-if="multiple && cacheList.length"/>
+        <li ng-if="!filterdList || !filterdList.length">No results found</li>
+        <li ng-repeat="item in filterdList = (list | filter : filterFunction)"
+            ng-click="onClickSelect(item, $event)">
+            <input type="checkbox"
+                   ng-checked="isSelected(item)"
+                   ng-if="multiple"/>
+            <span title="{{getItemLabel(item)}}">{{getItemLabel(item)}}</span>
+        </li>
+    </ul>
+    <div class="disabled" ng-if="!enabled"></div>
+</div>

@@ -1,0 +1,32 @@
+<span class="datepicker">
+    <span class="display"
+          ng-bind="selectedDateLabel"
+          ng-click="openCalendar()">
+    </span>
+    <div class="clear-btn" title="Clear"
+         ng-if="enabled && selectedDateLabel"
+         ng-click="clear()">
+        <svg-image src="/asset/icon/close.svg"></svg-image>
+    </div>
+    <div class="datepicker-btn"
+            ng-click="openCalendar()">
+        <svg-image src="/asset/icon/icon22_SearchCalendar_16x16px.svg"></svg-image>
+    </div>
+
+    <calendar class="calendar-box"
+              ng-class="{'up': isUp}"
+              ng-show="isCalendarOpen"
+              ng-click="onCalendarClick($event)"
+              ng-style="calendarPosition"
+
+              selected-date="selectedDate"
+              visible="isCalendarOpen"
+              disabled-dates="disabledDates"
+
+              date-changed="onDateChanged()">
+    </calendar>
+    <div class="disabled" ng-if="!enabled"></div>
+</span>
+
+
+

@@ -1,0 +1,128 @@
+@import "../../../style/const";
+@import "../../../style/mixin";
+
+.calendar {
+
+  a {
+    color: #fff;
+
+    &:visited {
+      color: #fff;
+    }
+  }
+}
+
+.calendar-header {
+  position: relative;
+}
+
+.calendar-main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.calendar-cell {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+
+  li {
+    display: block;
+    float: left;
+    border: 1px solid #DCDCDC;
+    border-width: 0 1px 1px 0;
+    width: 14.285%;
+    padding: 1.3% 0 1.31% 0;
+    line-height: normal;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    &:nth-child(7n+0) {
+      border-right: 1px solid #DCDCDC;
+    }
+
+    &:nth-child(1), &:nth-child(8), &:nth-child(15), &:nth-child(22), &:nth-child(29), &:nth-child(36) {
+      border-left: 1px solid #DCDCDC;
+    }
+  }
+
+  .calendar-enabled {
+    cursor: pointer;
+    background: #999;
+    color: #FFF;
+  }
+
+  .calendar-disabled {
+    background-color: rgba(124, 85, 85, 0.42);
+    color: #ccc;
+  }
+
+  .calendar-another-month {
+    color: #BBD9FA;
+  }
+
+  .calendar-today {
+    background-color: #eaeaea;
+    color: #000;
+  }
+
+  .calendar-active {
+    background-color: #42d1ff !important;
+    color: #000 !important;
+  }
+
+
+
+  .calendar-head {
+    border-top: 1px solid #DCDCDC;
+    background: #999;
+
+    /* &:nth-child(1), &:nth-child(7) {
+       background: #f3f3f3;
+     }   */
+  }
+}
+
+.calendar-centered-heading {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.3em;
+  margin: 13px 0 13px 0;
+  line-height: normal;
+}
+
+.calendar-controls {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  padding: 0 5px;
+
+  .calendar-prev {
+    cursor: pointer;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url("../asset/core/arrow_22.png");
+    @include cross(transform, rotate(180deg));
+  }
+
+  .calendar-next {
+    cursor: pointer;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    float: right;
+    background: url("../asset/core/arrow_22.png");
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+}
+

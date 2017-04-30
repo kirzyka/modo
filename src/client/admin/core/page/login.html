@@ -1,0 +1,28 @@
+<div class="login" ng-init="page.init()">
+    <div class="login-wrapper">
+        <div class="logo">
+            <svg-image src="/asset/img/logo-big.svg"></svg-image>
+        </div>
+        <div class="title">
+            <p ng-bind="page.model.globals.appTitle"></p>
+        </div>
+        <div class="login-form">
+            <div class="header">
+                <span>Login</span>
+            </div>
+            <div class="content">
+                <div class="form">
+                    <input type="email"
+                           title="Username" placeholder="Enter email"
+                           ng-keyup="$event.keyCode == 13 && page.submit()"
+                           ng-model="page.model.globals.userEmail">
+                </div>
+
+                <div class="control-box">
+                    <div class="button login-btn pointer"
+                         ng-click="page.submit()">Login</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

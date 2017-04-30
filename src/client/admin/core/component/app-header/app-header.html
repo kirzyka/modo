@@ -1,0 +1,11 @@
+<header>
+    <span class="title fn">
+        <svg-image class="app-logo" src="/asset/img/logo-small.svg"></svg-image>
+        <span ng-bind="vm.model.globals.appTitle"></span>
+    </span>
+    <span class="info pull-right">
+        Welcome <span ng-bind="vm.model.globals.user.email" title="{{model.globals.user.role.join(', ')}}"></span>
+        <a href ng-if="!vm.model.globals.ssoEnabled" ng-click="exit()"><svg-image class="logout-btn pointer" src="/asset/img/logout.svg"></svg-image></a>
+        <svg-image class="db-logo" src="/asset/img/logo-db.svg"></svg-image>
+    </span>
+</header>

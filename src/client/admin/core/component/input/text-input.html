@@ -1,0 +1,14 @@
+<div class="text-input">
+    <input type="text"
+        maxlength="{{vm.scope.maxLen}}"
+        ng-model="vm.scope.text"
+        title="{{vm.scope.text}}"
+        restrict="currentPattern">
+
+    <div class="clear-btn" title="Clear"
+         ng-if="vm.scope.enabled && vm.scope.text"
+         ng-click="vm.clear()">
+        <svg-image src="/asset/icon/close.svg"></svg-image>
+    </div>
+    <div class="disabled" ng-if="!vm.scope.enabled"></div>
+</div>
